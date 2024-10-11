@@ -1,3 +1,4 @@
+# 为每条记录添加"words"字段
 import json
 
 # 加载JSON文件
