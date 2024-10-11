@@ -1,3 +1,4 @@
+# 用于将 .dta 文件转换为 JSON 格式
 import pandas as pd
 
 # 读取 .dta 文件
