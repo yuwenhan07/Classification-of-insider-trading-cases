@@ -1,3 +1,4 @@
+# 用于将.docx文件转换为JSON格式，label为文件名，text为文件内容。
 import os
 import json
 from docx import Document
