@@ -24,7 +24,7 @@ for item in data:
     doc = " ".join(jieba.cut(text))
     
     # 提取关键字
-    keywords = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 2), top_n=10, stop_words=None)
+    keywords = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 2), top_n=20, stop_words=None)
     
     # 将原文、标签和提取的关键字一起保存
     result = {
