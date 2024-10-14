@@ -4,12 +4,13 @@ import jieba
 
 # 加载 JSON 文件
 input_file = '../../dataset/datademo/code/xz_with_word_count.json'
-output_file = 'xz_with_keywords.json'
+output_file = 'xz_with_keywords_phrases_usemmr.json'
 
 with open(input_file, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # 初始化 KeyBERT 模型
+# 一个支持中文的预训练模型，可以用来提取关键字
 kw_model = KeyBERT(model='paraphrase-multilingual-MiniLM-L12-v2')
 
 # 创建保存结果的列表
@@ -24,7 +25,7 @@ for item in data:
     doc = " ".join(jieba.cut(text))
     
     # 提取关键字
-    keywords = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 2), top_n=20, stop_words=None)
+    keywords = kw_model.extract_keywords(doc, keyphrase_ngram_range=(2, 2), top_n=20, use_mmr=True, diversity=0.5, stop_words=None)
     
     # 将原文、标签和提取的关键字一起保存
     result = {
